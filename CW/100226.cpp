@@ -12,6 +12,13 @@ int* insert(const int* a, size_t s, size_t i, int v)
   return data;
 }
 
+void insert(int** a, size_t s, size_t i, int v)
+{
+  int* data = insert(*a, s, i, v);
+  delete[] *a;
+  *a = data;
+}
+
 int main()
 {
   const int* a = new int[5]{1, 2, 4, 5, 6};
