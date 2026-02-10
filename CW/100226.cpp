@@ -38,6 +38,38 @@ int* cut(const int* a, size_t s) //оставить s элементов ДОМ�
 
 }
 
+// 3 example
+int* remove(int* a , size_t s, int v)
+{
+  for(size_t i = 0; i < s; ++i)
+  {
+    if(a[i] == v)
+    {
+      remove(a, s, i);
+      --s;
+      --i;
+    }
+  }
+  return a + s;
+}
+
+int* cut (const int* a, size_t s)
+{
+  int* data = new int[s];
+  for(size_t i = 0; i < s; ++i)
+  data[i] = a[i];
+  return data;
+}
+
+size_t erase(int** a, size_t s, int v)
+{
+  size_t upd = remove(*a, s, v) - (*a);
+  int* t = cut(*a, remove(*a, s, v) - *a);
+  delete[] *a;
+  *a = t;
+  return upd;
+}
+
 int main()
 {
   const int* a = new int[5]{1, 2, 4, 5, 6};
