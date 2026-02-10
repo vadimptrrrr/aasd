@@ -73,16 +73,15 @@ size_t erase(int** a, size_t s, int v)
 // final ex
 int* partition(int* a, size_t s, bool(*cond)(int))
 {
-  int k = 0;
   for(size_t i = 0; i < s; ++i)
   {
     if(!(cond(a[i])))
     {
       remove(a, s, i);
-      ++k;
+      --s;
     }
   }
-  return a + s - k;
+  return a + s;
 }
 
 // 4 ex
@@ -103,3 +102,20 @@ int* reverse(const int* a, size_t s)
   }
   return data;
 }
+
+// 5 ex
+int* unique(int* a, size_t s)
+{
+  size_t j = 0;
+  for(size_t i = 0; i < s; ++i)
+  {
+    if(a[j] != a[i])
+    {
+      a[++j] = a[i];
+    }
+  }
+  return a + j + 1;
+}
+
+int* cut();
+int* erase();
