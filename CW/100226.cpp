@@ -119,3 +119,54 @@ int* unique(int* a, size_t s)
 
 int* cut();
 int* erase();
+
+// 6 ex
+int* merge(const int* a, size_t sa, const int* b, size_t sb)
+{
+  size_t k;
+  int* data = new int[sa + sb];
+  for(size_t i = 0; i < sa; ++i)
+  {
+    int m = 10000000000;
+    for(size_t j = 0; j < sb; ++j)
+    {
+      m = (a[i] < b[i]) ? a[i] : b[i];
+    }
+    data[k++] = m;
+  }
+  return data;
+}
+
+// final ex
+int* merge(const int* const* a, size_t sa, const size_t* sai, int* c)
+{
+  size_t* sizes = new size_t[sa];
+  size_t SUM = 0;
+  for(size_t i = 0; i < sa; ++i)
+  {
+    sizes[i] = sai[i];
+    SUM += sai[i];
+  }
+
+  for(size_t q = 0; q < SUM; ++q)
+  {
+    int MIN = 10000000;
+    size_t idx = 0;
+    size_t k;
+    for(size_t i = 0; i < sa; ++i)
+    {
+      for(size_t j = sai[i] - sizes[i]; j < sai[i]; ++j)
+      {
+        if(a[i][j] < MIN)
+        {
+          MIN = a[i][j];
+          idx = i;
+        }
+      }
+    }
+    sizes[idx]--;
+    c[k] = MIN;
+    ++k;
+  }
+  return c + SUM;
+}
