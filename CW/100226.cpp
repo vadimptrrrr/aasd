@@ -70,6 +70,7 @@ size_t erase(int** a, size_t s, int v)
   return upd;
 }
 
+// final ex
 int* partition(int* a, size_t s, bool(*cond)(int))
 {
   int k = 0;
@@ -82,4 +83,23 @@ int* partition(int* a, size_t s, bool(*cond)(int))
     }
   }
   return a + s - k;
+}
+
+// 4 ex
+void reverse(int* a, size_t s)
+{
+  for(size_t i = 0; i < s; ++i)
+  {
+    std::swap(a[i], a[s - i - 1]);
+  }
+}
+
+int* reverse(const int* a, size_t s)
+{
+  int* data = new int[s];
+  for(size_t i = 0; i < s; ++i)
+  {
+    data[s - i - 1] = a[i];
+  }
+  return data;
 }
