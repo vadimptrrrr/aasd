@@ -70,13 +70,16 @@ size_t erase(int** a, size_t s, int v)
   return upd;
 }
 
-int main()
+int* partition(int* a, size_t s, bool(*cond)(int))
 {
-  const int* a = new int[5]{1, 2, 4, 5, 6};
-  int* b = insert(a, 5, 2, 3);
-  for(size_t i = 0; i < 6; ++i)
+  int k = 0;
+  for(size_t i = 0; i < s; ++i)
   {
-    std::cout << b[i] << ' ';
+    if(!(cond(a[i])))
+    {
+      remove(a, s, i);
+      ++k;
+    }
   }
-  delete[] a;
+  return a + s - k;
 }
