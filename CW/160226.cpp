@@ -59,3 +59,9 @@ void reverse(T* a, size_t s, size_t& z)
     ++z;
   }
 }
+
+//========= 3.1 ========
+// remove
+template < class T >
+T* remove(const T* a, size_t s, T v)
+{}
