@@ -72,3 +72,10 @@ T* remove(const T* a, size_t s, T v)
 template< class T >
 T* remove(T* a, size_t s, bool(*c)(T))
 {}
+
+//========= 4.1 ========
+// remove
+// перенести указанный элемент в другой массив на указанную позицию
+template< class T >
+void transfer(T** a, size_t s1, T** b, size_t s2)
+{}
