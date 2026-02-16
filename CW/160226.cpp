@@ -65,3 +65,10 @@ void reverse(T* a, size_t s, size_t& z)
 template < class T >
 T* remove(const T* a, size_t s, T v)
 {}
+
+//========= 3.1 ========
+// remove
+// убрать элементы равные данному и соответсыующие критерию
+template< class T >
+T* remove(T* a, size_t s, bool(*c)(T))
+{}
