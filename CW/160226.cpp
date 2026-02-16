@@ -1,5 +1,7 @@
 #include <cstddef>
 
+//========= 1 ========
+// + элемент на определённую позицию
 template < class T >
 T* insert(const T* a, size_t s, size_t i, T v)
 {
@@ -18,6 +20,29 @@ T* insert(const T* a, size_t s, size_t i, T v)
   }
   catch(...)
   {
+    delete[] r;
     throw;
   }
+  return r;
+}
+
+//========= 2 ========
+//  Разворот массива
+template < class T >
+T* reverse(const T* a, size_t s)
+{
+  T* r = new T[s];               //T::T()
+  try
+  {
+    for(size_t i = 0; i < s; ++i)
+    {
+      r[i] = a[s-i+1]
+    }                              //T::operator=(T)
+  }
+  catch(...)
+  {
+    delete[] r;
+    throw;
+  }
+    return r
 }
