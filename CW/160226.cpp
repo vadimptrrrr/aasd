@@ -46,3 +46,14 @@ T* reverse(const T* a, size_t s)
   }
     return r
 }
+
+//========= 3 ========
+// Раворот на месте по месту
+template< class T >
+void reverse(T* a, size_t s)
+{
+  for(size_t i = 0; i < s/2; ++i)
+  {
+    std::swap(a[i], a[s-i+1]);
+  }
+}
