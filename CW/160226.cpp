@@ -79,3 +79,33 @@ T* remove(T* a, size_t s, bool(*c)(T))
 template< class T >
 void transfer(T** a, size_t s1, T** b, size_t s2)
 {}
+
+// ========= FINAL BOSS =========
+template< class T >
+T* erase(size_t& valid, const T* a, size_t s, const size_t* eids, size_t toerase)
+{
+  valid = 0;
+  size_t count = s - toerase;
+  T* res = new T[count];
+  size_t j = 0;
+  size_t k = 0;
+
+  for(size_t i = 0; i < s; ++i)
+  {
+    try
+    {
+      if(eids[j] != i)
+      {
+        res[k++] = a[i];
+        valid++; 
+      }
+      else
+      {
+        j++;
+      }
+    }
+    catch(...)
+    {}
+  }
+  return res;
+}
