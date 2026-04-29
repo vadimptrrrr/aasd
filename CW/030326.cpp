@@ -1,4 +1,5 @@
 #include <cstddef>
+#include <exception>
 
 // 1.1 глубокое копирование структуры. строгая гарантия
 template< class T >
@@ -71,7 +72,7 @@ List< Vec< T > >* copy(const List< Vec< T > >* h)
   }
   catch(...)
   {
-    clear(res);
+    clear(head);
     throw;
   }
   return head;
@@ -102,3 +103,9 @@ Vec< List< T >* > convert(List< Vec< T > >* h)
 {
 
 }
+
+int main()
+{
+  return 0;
+}
+
